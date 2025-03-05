@@ -1,14 +1,12 @@
 import Header from "../../components/Header/Header.jsx";
-import styles from "./Home.module.css";
+import FilterPanel from "../../components/FilterPanel/FilterPanel.jsx";
+
 
 const Home = () => {
   return (
-    <div className={styles.home}>
+    <div>
       <Header />
-      <div className={styles.content}>
-        <h1>Welcome to Aroma</h1>
-        <p>Discover amazing products at the best prices.</p>
-      </div>
+      <FilterPanel />
     </div>
   );
 };
