@@ -1,0 +1,79 @@
+.filterPanel {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: space-between; /* Allows manual positioning inside */
+  transform: translateX(-50%); /* Centers the panel horizontally */
+  top: 120px;
+  left: 50%;
+  width: 60%;
+  max-width: 800px; /* Prevents it from getting too wide */
+  height: 70px; /* Adjust height as needed */
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Keeps it above other elements */
+  border-radius: 10px; /* Optional: Rounded edges */
+}
+
+.categoryButtons {
+    display :flex;
+}
+.filterButton {
+  background-color: white;
+  border: 1px solid black;
+  padding: 8px 15px;
+  font-size: 14;
+  color: black;
+  border-radius: 20px; /* Makes it rounded */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filterButton:hover {
+  background-color: white;
+}
+
+/* Dropdown Button */
+.dropdown {
+  position: relative;
+}
+
+.dropdownButton {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.triangle {
+  margin-left: 5px;
+}
+
+/* Dropdown Content */
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  min-width: 120px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContent a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdownContent a:hover {
+  background-color: #f0f0f0;
+}
