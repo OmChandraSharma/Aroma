@@ -10,8 +10,7 @@ const Header = () => {
         className={styles.searchBar}
       />
       <div className={styles.authButtons}>
-        <button className={styles.button}>Login</button>
-        <button className={styles.button}>Sign Up</button>
+        <button className={styles.loginButton}>Login/Signup</button>
       </div>
     </header>
   );

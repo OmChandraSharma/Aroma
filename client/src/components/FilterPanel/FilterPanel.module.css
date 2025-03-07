@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   position: fixed;
-  justify-content: space-between; /* Allows manual positioning inside */
+  justify-content: flex-start; /* Allows manual positioning inside */
   transform: translateX(-50%); /* Centers the panel horizontally */
   top: 120px;
   left: 50%;
@@ -18,16 +18,18 @@
 
 .categoryButtons {
     display :flex;
+    margin-left:30px;
+    gap:15px;
 }
 .filterButton {
   background-color: white;
   border: 1px solid black;
-  padding: 8px 15px;
+  padding: 8px 10px;
   font-size: 14;
   color: black;
   border-radius: 20px; /* Makes it rounded */
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .filterButton:hover {
