@@ -1,18 +1,16 @@
 import styles from "./Header.module.css";
+import DarkModeToggle from "./DarkModeToggle";
+import Header_logo from "./Header_logo";
+import SearchBar from "./SearchBar";
+import LoginButton from "./LoginButton";
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <img src="/public/aroma_logo.jpg" className={styles.logo} />
-      <input
-        type="text"
-        placeholder="Search products..."
-        className={styles.searchBar}
-      />
-      <div className={styles.authButtons}>
-        <button className={styles.button}>Login</button>
-        <button className={styles.button}>Sign Up</button>
-      </div>
+      <Header_logo />
+      <SearchBar />
+      <DarkModeToggle />
+      <LoginButton />
     </header>
   );
 };
