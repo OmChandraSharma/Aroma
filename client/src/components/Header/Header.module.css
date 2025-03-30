@@ -17,18 +17,22 @@
   z-index: 1000;
 }
 
-.dark_mode_header{
+.dark_mode_header {
   margin-left: 0.5%;
   color: black;
-
 }
 .logo {
-  margin-left: 0%;
+  margin-left: 2.5%;
   flex-shrink: 0;
-  height: 300%;
+  height: 100%;
   width: 10%;
-  object-fit: contain;
+  cursor: pointer;
 }
+
+.logo:hover {
+  border: 2px solid rgb(0, 6, 122); /* Adds a border on hover */
+}
+
 .searchBox {
   height: 70%;
   width: 42%;
@@ -40,10 +44,10 @@
   margin-left: 4%;
 }
 
-.search_icon{
+.search_icon {
   margin-left: -4%;
   height: 105.5%;
-  width:10%
+  width: 10%;
 }
 /* Login Button (Style) */
 .loginButton {

@@ -16,14 +16,17 @@ const DarkModeToggle = () => {
   }, [isDarkMode]);
 
   return (
-    <label className={styles.toggle_switch}>
-      <input
-        type="checkbox"
-        checked={isDarkMode}
-        onChange={() => setIsDarkMode(!isDarkMode)}
-      />
-      <span className={styles.slider}></span>
-    </label>
+    <>
+      <label className={styles.toggle_switch}>
+        <input
+          type="checkbox"
+          checked={isDarkMode}
+          onChange={() => setIsDarkMode(!isDarkMode)}
+        />
+        <span className={styles.slider}></span>
+      </label>
+      <h4 className={styles.dark_mode_header}>Dark Mode</h4>
+    </>
   );
 };
 
