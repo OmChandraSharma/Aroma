@@ -1,7 +1,7 @@
 const express = require('express');
-const Cart = require('./../models/cart'); // Cart schema
-const Listing = require('./../models/listing'); // listing schema
-const authMiddleware = require('././authMiddleware');
+const Cart = require('../models/cart'); // Cart schema
+const Listing = require('../models/listing'); // listing schema
+const authMiddleware = require('../authMiddleware');
 
 const router = express.Router();
 
@@ -32,7 +32,7 @@ router.get('/listing/:product_name', async (req, res) => {
 
   
   // Add or list items in the database
-router.post('/listing', authenticateUser, async (req, res) => {
+router.post('/listing', authMiddleware, async (req, res) => {
     const { product_name, product_price, product_image, product_count } = req.body;
   
     try {
@@ -54,7 +54,7 @@ router.post('/listing', authenticateUser, async (req, res) => {
 
 
   // Buy item, decrease count, and remove from cart if present
-router.post('/buy/listing/:product_id', authenticateUser, async (req, res) => {
+router.post('/buy/listing/:product_id', authMiddleware, async (req, res) => {
     const { product_id } = req.params;
   
     try {

@@ -1,7 +1,7 @@
 const express = require('express');
-const Cart = require('./../models/cart'); // Cart schema
-const Listing = require('./../models/listing');
-const authMiddleware = require('././authMiddleware');
+const Cart = require('../models/cart'); // Cart schema
+const Listing = require('../models/listing');
+const authMiddleware = require('../authMiddleware');
 
 const router = express.Router();
 
