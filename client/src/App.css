@@ -1,3 +1,27 @@
 body{
   background-color: #fff; /* Makes entire app white */
 }
+
+/* .form-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+} */
