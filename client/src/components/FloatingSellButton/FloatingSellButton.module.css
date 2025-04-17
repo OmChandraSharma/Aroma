@@ -1,7 +1,7 @@
 .sellButton {
-  position: fixed;
-  top: 600px;
-  left: 1375px;
+  position: absolute;       /* changed from relative */
+  bottom: 8%;               /* adjust as needed */
+  right: 4%;                /* adjust as needed */
   border: 1px solid;
   border-radius: 999px;
   box-sizing: border-box;
@@ -9,7 +9,6 @@
   font-weight: 900;
   overflow: hidden;
   padding: 0.8rem 2rem;
-  position: relative;
   text-transform: uppercase;
   background-color: #000a7c;
   color: #fff;
@@ -19,9 +18,9 @@
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 100%;
   line-height: 1.5;
-  margin: 0;
   z-index: 999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0;
 }
 
 .original {
