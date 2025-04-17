@@ -2,13 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home.jsx";
 import Login from "./pages/Auth/Login.jsx";
-import Signup from "./pages/Auth/signup.jsx";
+import Signup from "./pages/Auth/Signup.jsx";
 import CartPage from "./pages/cart/Cart.jsx"; // adjust path as needed
 
 import "./App.css";
 import Sell from "./pages/Sell_item/Sell.jsx";
 
 function App() {
+  
   return (
     <Router>
       <Routes>

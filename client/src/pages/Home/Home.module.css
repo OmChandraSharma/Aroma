@@ -1,0 +1,34 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  /* overflow-y: auto; */
+  box-sizing: border-box;
+}
+
+/* Header at top */
+.homeContainer > :nth-child(1) {
+  margin-top: 0;
+}
+
+/* Section containing filter and product grid (scrollable) */
+.scrollableSection {
+  width: 100%;
+  height: calc(100vh - 80px); /* Adjust if header height is different */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FilterPanel spacing */
+.scrollableSection > :nth-child(1) {
+  margin-top: 6%;
+}
+
+/* ProductGrid spacing from FilterPanel */
+.scrollableSection > :nth-child(2) {
+  margin-top: 1%;
+}
