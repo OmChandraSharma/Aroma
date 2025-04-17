@@ -43,13 +43,14 @@ const listingSchema = new mongoose.Schema({
     default: 0
   },
   bid_time: {  // New field for bid window
-    type: Date,
+    type: Number, // time in seconds
     default: null
   },
   description_address:{
     type: String,
     default: null
-  }
+  },
+  bid_status: { type: Boolean, default: 0 }, // 'active', 'expired', etc.
 }, { timestamps: true });
 
 module.exports = mongoose.model('Listing', listingSchema);
