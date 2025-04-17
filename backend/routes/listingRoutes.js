@@ -1,9 +1,44 @@
 const express = require('express');
-const Cart = require('./../models/cart'); // Cart schema
-const Listing = require('./../models/listing'); // listing schema
-const authMiddleware = require('././authMiddleware');
+const Cart = require('../models/cart'); // Cart schema
+const Listing = require('../models/listing'); // listing schema
+const authMiddleware = require('../authMiddleware');
 
 const router = express.Router();
+
+
+// ✅ Switch between cloud and local upload
+const upload = require('../middlewares/uploadLocal'); // Change to uploadCloudinary when needed
+
+router.post('/upload', upload.single('image'), async (req, res) => {
+  // const { product_name, product_price, product_count, category } = req.body;
+
+  try {
+    const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // URL to serve the image
+
+    // const newListing = new Listing({
+    //   user_id: req.userId,
+    //   product_name,
+    //   category,
+    //   product_price,
+    //   product_count,
+    //   product_image: imageUrl
+    // });
+
+    // await newListing.save();
+    res.status(201).json(imageUrl);
+    // res.status(201).json(newListing);
+  } catch (err) {
+    console.error('Error creating listing:', err);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// upload = require('../middlewares/uploadCloudinary');
+// const { createListing } = require('../controllers/ListingController');
+
+// router.post('/upload', upload.single('image'), createListing);
+
+
 
 // Search route
 router.get('/listing/:product_name', async (req, res) => {
@@ -32,7 +67,7 @@ router.get('/listing/:product_name', async (req, res) => {
 
   
   // Add or list items in the database
-router.post('/listing', authenticateUser, async (req, res) => {
+router.post('/listing', authMiddleware, async (req, res) => {
     const { product_name, product_price, product_image, product_count } = req.body;
   
     try {
@@ -54,7 +89,7 @@ router.post('/listing', authenticateUser, async (req, res) => {
 
 
   // Buy item, decrease count, and remove from cart if present
-router.post('/buy/listing/:product_id', authenticateUser, async (req, res) => {
+router.post('/buy/listing/:product_id', authMiddleware, async (req, res) => {
     const { product_id } = req.params;
   
     try {
@@ -104,5 +139,54 @@ router.get('/listing/filter', async (req, res) => {
       res.status(500).json({ message: 'Server Error' });
     }
   });
+
+  // In your listing routes
+router.get('/items/category/:category_name', async (req, res) => {
+  const { category_name } = req.params;
+
+  try {
+      // Fetch items that belong to the specified category
+      const items = await Listing.find({ category: category_name });
+
+      if (items.length === 0) {
+          return res.status(404).json({ message: 'No items found for this category' });
+      }
+
+      res.status(200).json({ message: 'Items fetched successfully', items });
+  } catch (err) {
+      res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
+// In your listing routes
+router.get('/items/filter', async (req, res) => {
+  const { category, priceMin, priceMax } = req.query;
+
+  try {
+      let filter = {};
+
+      // Filter by category if provided
+      if (category) {
+          filter.category = category;
+      }
+
+      // Filter by price range if provided
+      if (priceMin && priceMax) {
+          filter.product_price = { $gte: priceMin, $lte: priceMax };
+      }
+
+      // Fetch items that match the filter criteria
+      const items = await Listing.find(filter);
+
+      if (items.length === 0) {
+          return res.status(404).json({ message: 'No items found with the applied filters' });
+      }
+
+      res.status(200).json({ message: 'Items fetched successfully', items });
+  } catch (err) {
+      res.status(500).json({ message: 'Server error', error: err.message });
+  }
+});
+
   
   module.exports = router;
