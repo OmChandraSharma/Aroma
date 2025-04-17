@@ -16,7 +16,7 @@ const app = express() // now app has all functionalities to  form a server
 const db = require('./db')// jaise hi server file run yeh db file bhi run huyi 
 
 const cart = require('./models/cart');
-const listItem = require('./models/listing');
+const Listing = require('./models/listing');
 const User = require('./models/User');
 
 const cartRoutes = require('./routes/cartRoutes');
@@ -36,6 +36,20 @@ const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Now you can access files like http://localhost:5000/uploads/image.jpg
 // It tells Express: "If anyone requests http://localhost:5000/uploads/somefile.jpg, serve them the actual image stored in the uploads/ folder."
 // console.log('__dirname:', __dirname); // 👈 This line shows the current directory
+
+
+// home page rendering of 12 images to post it in grid 
+app.get('/', async (req, res) => {
+    try {
+      const listings = await Listing.find().limit(12); // Fetch top 12 listings
+      res.status(200).json(listings);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+  
+
 app.use("/api/auth", authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/list',listingRoutes);

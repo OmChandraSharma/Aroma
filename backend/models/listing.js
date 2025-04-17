@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
-  user_id: {
+  seller_id: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'User'
@@ -36,13 +36,13 @@ const listingSchema = new mongoose.Schema({
     default: false
   },
   is_avail_to_rent: {
-    type: String,
+    type: Boolean,
   },
   rent_price_day: {
     type: Number,
     default: 0
   },
-  bid_time: {  // New field for bid window
+  bid_duration_time: {  // New field for bid window
     type: Number, // time in seconds
     default: null
   },
@@ -50,7 +50,14 @@ const listingSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  rent_status: {type: Boolean, default: 0},
+
   bid_status: { type: Boolean, default: 0 }, // 'active', 'expired', etc.
+  again_avail_to_rent:{
+    type: Date,
+    default: Date.now()
+  }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Listing', listingSchema);

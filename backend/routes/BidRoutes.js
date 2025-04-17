@@ -1,6 +1,7 @@
 const express = require('express');
 const Bid = require('../models/bid'); // Bid schema
 const Listing = require('../models/listing');
+const User = require('../models/User.js');
 const authMiddleware = require('../authMiddleware');
 const router = express.Router();
 
@@ -30,13 +31,16 @@ router.post('/bid/:listing_id', authMiddleware, async (req, res) => {
           product_name: listing.product_name,
           product_price: listing.product_price,
           quantity: 1,
+          ordered_at: Date.now()
         });
         await order.save();
-  
         await Listing.findByIdAndDelete(listing_id);
         await Bid.deleteOne({ listing_id });
+        const seller_id = listing.seller_id
+        const seller = await User.findById(seller_id);
+        if (!seller) return res.status(404).json({ message: 'Seller not found' });
   
-        return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.' });
+        return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.', seller_email: seller.email });
       }
   
       // New bid must be higher
@@ -105,13 +109,19 @@ router.put('/close-bid/:bid_id', authMiddleware, async (req, res) => {
             product_name: listing.product_name,
             product_price: listing.product_price,
             quantity: 1,
+            ordered_at: Date.now()
           });
           await order.save();
     
           await Listing.findByIdAndDelete(listing._id);
           await Bid.deleteOne({bid_id});
+          const seller_id = listing.seller_id
+          const seller = await User.findById(seller_id);
+          if (!seller) return res.status(404).json({ message: 'Seller not found' });
     
-          return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.' });
+        //   return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.', seller_email: seller.email });
+    
+          return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.',seller_email: seller.email });
     } catch (err) {
         res.status(500).json({ message: 'Server error', error: err.message });
     }
