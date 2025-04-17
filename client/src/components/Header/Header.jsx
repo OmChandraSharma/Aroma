@@ -11,7 +11,7 @@ const Header = () => {
         className={styles.searchBar}
       />
       <div className={styles.authButtons}>
-        <button className={styles.button} onClick={() => navigate("/cart")}>Cart</button>
+        {/* <button className={styles.button} onClick={() => navigate("/cart")}>Cart</button> */}
         <button className={styles.button} onClick={() => navigate("/login")}>Login</button>
         <button className={styles.button} onClick={() => navigate("/signup")}>Sign Up</button>
       </div>
