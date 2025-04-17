@@ -2,41 +2,49 @@
   display: flex;
   align-items: center;
   position: fixed;
-  justify-content: flex-start; /* Allows manual positioning inside */
-  transform: translateX(-50%); /* Centers the panel horizontally */
+  justify-content: flex-start;
+  transform: translateX(-50%);
   top: 120px;
   left: 50%;
   width: 60%;
-  max-width: 800px; /* Prevents it from getting too wide */
-  height: 70px; /* Adjust height as needed */
+  max-width: 800px;
+  height: 70px;
   padding: 15px 30px;
   background-color: #fff;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Keeps it above other elements */
-  border-radius: 10px; /* Optional: Rounded edges */
+  z-index: 1000;
+  border-radius: 10px;
 }
 
 .categoryButtons {
-    display :flex;
-    margin-left:30px;
-    gap:15px;
+  display: flex;
+  margin-left: 30px;
+  gap: 15px;
 }
+
 .filterButton {
   background-color: white;
   border: 1px solid black;
-  padding: 8px 10px;
-  font-size: 14;
+  padding: 8px 14px;
+  font-size: 14px;
   color: black;
-  border-radius: 20px; /* Makes it rounded */
+  border-radius: 20px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: none;
 }
 
 .filterButton:hover {
-  background-color: white;
+  background-color: #f2f2f2;
+  color: black;
 }
 
-/* Dropdown Button */
+.active {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+/* Dropdown */
 .dropdown {
   position: relative;
 }
@@ -44,38 +52,54 @@
 .dropdownButton {
   background-color: white;
   color: black;
-  border: none;
-  padding: 10px 20px;
+  border: 1px solid black;
+  padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.dropdownButton:hover {
+  background-color: #f2f2f2;
 }
 
 .triangle {
   margin-left: 5px;
+  font-size: 12px;
 }
 
-/* Dropdown Content */
 .dropdownContent {
-  display: none;
   position: absolute;
+  top: 120%;
+  left: 0;
   background-color: white;
-  color: black;
-  min-width: 120px;
+  min-width: 180px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 999;
 }
 
-.dropdown:hover .dropdownContent {
-  display: block;
-}
-
-.dropdownContent a {
-  padding: 10px;
-  display: block;
-  text-decoration: none;
+.dropdownItem {
+  padding: 10px 15px;
+  font-size: 14px;
   color: black;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
 }
 
-.dropdownContent a:hover {
-  background-color: #f0f0f0;
+.dropdownItem:hover {
+  background-color: #f2f2f2;
+}
+
+/* Remove unwanted blue/focus outlines */
+button,
+button:focus,
+button:active,
+.dropdownItem:focus,
+.dropdownItem:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
