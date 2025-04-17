@@ -11,6 +11,13 @@ router.post("/signup", async (req, res) => {
     const { name, email, password , phone } = req.body;
 
     try {
+
+        // Check if email ends with 'iitj.ac.in'
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@iitj\.ac\.in$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ msg: "Only IIT Jodhpur emails are allowed" });
+        }
+        
         let existingUser = await User.findOne({ email });
         if (existingUser) return res.status(400).json({ msg: "User already exists" });
 

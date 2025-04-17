@@ -2,46 +2,47 @@ const express = require('express');
 const Cart = require('../models/cart'); // Cart schema
 const Listing = require('../models/listing'); // listing schema
 const authMiddleware = require('../authMiddleware');
-
+const Order = require('../models/order');
 const router = express.Router();
 
 
-// ✅ Switch between cloud and local upload
-const upload = require('../middlewares/uploadLocal'); // Change to uploadCloudinary when needed
+// // ✅ Switch between cloud and local upload
+// const upload = require('../middlewares/uploadLocal'); // Change to uploadCloudinary when needed
 
-router.post('/upload', upload.single('image'), async (req, res) => {
-  // const { product_name, product_price, product_count, category } = req.body;
+// router.post('/upload',authMiddleware, upload.single('image'), async (req, res) => {
+//   // const { product_name, product_price, product_count, category } = req.body;
 
-  try {
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // URL to serve the image
+//   try {
+//     const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // URL to serve the image
 
-    // const newListing = new Listing({
-    //   user_id: req.userId,
-    //   product_name,
-    //   category,
-    //   product_price,
-    //   product_count,
-    //   product_image: imageUrl
-    // });
+//     // const newListing = new Listing({
+//     //   user_id: req.userId,
+//     //   product_name,
+//     //   category,
+//     //   product_price,
+//     //   product_count,
+//     //   product_image: imageUrl
+//     // });
 
-    // await newListing.save();
-    res.status(201).json(imageUrl);
-    // res.status(201).json(newListing);
-  } catch (err) {
-    console.error('Error creating listing:', err);
-    res.status(500).json({ message: 'Server Error' });
-  }
-});
+//     // await newListing.save();
+//     res.status(201).json(imageUrl);
+//     // res.status(201).json(newListing);
+//   } catch (err) {
+//     console.error('Error creating listing:', err);
+//     res.status(500).json({ message: 'Server Error' });
+//   }
+// });
 
-// upload = require('../middlewares/uploadCloudinary');
-// const { createListing } = require('../controllers/ListingController');
-
-// router.post('/upload', upload.single('image'), createListing);
+upload = require('../middlewares/uploadCloudinary');
+const { createListing } = require('../controllers/ListingController');
+const { conformsTo } = require('lodash');
+// Add listings by seller to the database
+router.post('/upload', upload.single('image'), createListing);
 
 
 
 // Search route
-router.get('/listing/:product_name', async (req, res) => {
+router.get('/:product_name', async (req, res) => {
     const { product_name } = req.params;
   
     try {
@@ -52,10 +53,16 @@ router.get('/listing/:product_name', async (req, res) => {
       }
   
       const productDetails = products.map(product => ({
-        user_id: product.user_id,
+        seller_id: product.seller_id,
         product_name: product.product_name,
         product_image: product.product_image,
-        product_price: product.product_price
+        product_price: product.product_price,
+        bid_status:item.bid_status, // boolean 
+        rent_status:product.rent_status,
+        is_biddable:product.is_biddable,
+        avail_to_rent:product.is_avail_to_rent, // boolean 
+        again_avail_to_rent:product.again_avail_to_rent // data 
+
       }));
   
       res.status(200).json(productDetails);
@@ -66,34 +73,34 @@ router.get('/listing/:product_name', async (req, res) => {
   });
 
   
-  // Add or list items in the database
-router.post('/listing', authMiddleware, async (req, res) => {
-    const { product_name, product_price, product_image, product_count } = req.body;
-  
-    try {
-      const newListing = new Listing({
-        user_id: req.userId,
-        product_name,
-        product_price,
-        product_image,
-        product_count
-      });
-  
-      await newListing.save();
-      res.status(201).json(newListing);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server Error' });
+
+
+// product card 
+router.post('/:product_id', authMiddleware, async (req, res) => {
+  try {
+    const { product_id } = req.params;
+    const listing = await Listing.findOne({ _id: product_id });
+
+    if (!listing) {
+      return res.status(404).json({ message: 'Listing not found' });
     }
-  });
+
+    res.status(200).json(listing);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
 
 
   // Buy item, decrease count, and remove from cart if present
-router.post('/buy/listing/:product_id', authMiddleware, async (req, res) => {
+  router.post('/buy/:product_id', authMiddleware, async (req, res) => {
     const { product_id } = req.params;
   
     try {
-      const product = await Listing.findOne({ product_id });
+      const product = await Listing.findOne({ _id: product_id });
   
       if (!product) {
         return res.status(404).json({ message: 'Product not found' });
@@ -108,18 +115,39 @@ router.post('/buy/listing/:product_id', authMiddleware, async (req, res) => {
       await product.save();
   
       // Remove from cart
-      await Cart.findOneAndDelete({ user_id: req.userId, product_id });
+      await Cart.findOneAndDelete({ user_id: req.user.id, product_id });
   
-      res.status(200).json(product);
+      // Create order
+      const newOrder = new Order({
+        user_id: req.userId,
+        listing_id: product._id,
+        product_name: product.product_name,
+        product_price: product.product_price,
+        quantity: 1, // default is 1, or set dynamically if needed
+      });
+  
+      await newOrder.save();
+      const seller_id = product.seller_id
+      const seller = await User.findById(seller_id);
+      if (!seller) return res.status(404).json({ message: 'Seller not found' });
+    
+        //   return res.status(200).json({ message: 'Bid ended. Item sold to highest bidder.', seller_email: seller.email });
+    
+      res.status(200).json({ message: 'Purchase successful',seller_email: seller.email });
+      // res.status(200).json({
+      //   message: 'Purchase successful',
+      //   order: newOrder,
+      // });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Server Error' });
     }
   });
+  
 
   
   // Filter products by price range and sort
-router.get('/listing/filter', async (req, res) => {
+router.get('/filter', async (req, res) => {
     const { min_price, max_price, sort } = req.query;
   
     const filter = {
@@ -141,7 +169,7 @@ router.get('/listing/filter', async (req, res) => {
   });
 
   // In your listing routes
-router.get('/items/category/:category_name', async (req, res) => {
+router.get('/:category_name', async (req, res) => {
   const { category_name } = req.params;
 
   try {

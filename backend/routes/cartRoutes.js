@@ -45,12 +45,18 @@ router.get('/view-cart', authMiddleware, async (req, res) => {
   
       // Fetch product details from Listing collection
       const productDetails = await Promise.all(cartItems.map(async (item) => {
-        const product = await Listing.findOne({ product_id: item.product_id });
+        const product = await Listing.findOne({ _id: item.product_id });
         return {
+          product_id : product._id,
           product_name: product.product_name,
           product_image: product.product_image,
           product_price: product.product_price,
-          count: item.count
+          count: item.count,
+          bid_status:product.bid_status, // boolean 
+          rent_status:product.rent_status,
+          is_biddable:product.is_biddable,
+          avail_to_rent:product.is_avail_to_rent, // boolean 
+          again_avail_to_rent:product.again_avail_to_rent // data 
         };
       }));
   
