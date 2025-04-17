@@ -6,6 +6,7 @@ import Signup from "./pages/Auth/signup.jsx";
 import CartPage from "./pages/cart/Cart.jsx"; // adjust path as needed
 
 import "./App.css";
+import Sell from "./pages/Sell_item/Sell.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/sell" element={<Sell />} />
       </Routes>
     </Router>
   );
