@@ -31,10 +31,14 @@ app.use(bodyParser.json());
 app.use(cors());  //Allows requests from other origins (e.g., frontend on different port).Parses incoming request body as JSON (important for POST/PUT APIs).
 // app.use(express.json());
 
+const path = require('path');
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Now you can access files like http://localhost:5000/uploads/image.jpg
+// It tells Express: "If anyone requests http://localhost:5000/uploads/somefile.jpg, serve them the actual image stored in the uploads/ folder."
+// console.log('__dirname:', __dirname); // 👈 This line shows the current directory
 app.use("/api/auth", authRoutes);
-app.use('api/cart', cartRoutes);
-app.use('api/list',listingRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/list',listingRoutes);
 
 const PORT = process.env.PORT || 3000;
 

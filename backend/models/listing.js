@@ -1,18 +1,21 @@
 const mongoose = require('mongoose');
 
-// Define the Listing Schema
 const listingSchema = new mongoose.Schema({
   user_id: {
-    type: mongoose.Schema.Types.ObjectId,  // Refers to the user who owns the listing
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: 'User' // Assuming you have a User model
+    ref: 'User'
   },
   product_id: {
-    type: String, // Unique product identifier
+    type: String,
     required: true,
     unique: true
   },
   product_name: {
+    type: String,
+    required: true
+  },
+  category:{
     type: String,
     required: true
   },
@@ -21,14 +24,25 @@ const listingSchema = new mongoose.Schema({
     required: true
   },
   product_image: {
-    type: String // URL of the product image
+    type: String
   },
   product_count: {
     type: Number,
     required: true,
-    min: 0 // Prevents negative stock count
+    min: 0
+  },
+  is_biddable: {  // New field for bidding
+    type: Boolean,
+    default: false
+  },
+  bid_time: {  // New field for bid window
+    type: Date,
+    default: null
+  },
+  description_address:{
+    type: String,
+    default: null
   }
 }, { timestamps: true });
 
-// Create and export the model
 module.exports = mongoose.model('Listing', listingSchema);
