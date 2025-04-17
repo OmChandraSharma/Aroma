@@ -27,51 +27,56 @@ const FilterPanel = () => {
 
   return (
     <div className={styles.filterPanel}>
-      <div className={styles.dropdown} ref={dropdownRef}>
-        <button
-          className={styles.dropdownButton}
-          onClick={() => setDropdownOpen((prev) => !prev)}
-        >
-          Filter <span className={styles.triangle}>▼</span>
-        </button>
-        {dropdownOpen && (
-          <div className={styles.dropdownContent}>
-            <div
-              className={styles.dropdownItem}
-              onClick={() => setDropdownOpen(false)}
-            >
-              Price Range (Custom)
-            </div>
-            <div
-              className={styles.dropdownItem}
-              onClick={() => setDropdownOpen(false)}
-            >
-              Price: Low to High
-            </div>
-            <div
-              className={styles.dropdownItem}
-              onClick={() => setDropdownOpen(false)}
-            >
-              Price: High to Low
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className={styles.categoryButtons}>
-        {categories.map((category) => (
+      <div className={styles.leftSection}>
+        <div className={styles.dropdown} ref={dropdownRef}>
           <button
-            key={category}
-            className={`${styles.filterButton} ${
-              selectedCategory === category ? styles.active : ""
-            }`}
-            onClick={() => handleCategoryClick(category)}
+            className={styles.dropdownButton}
+            onClick={() => setDropdownOpen((prev) => !prev)}
             type="button"
           >
-            {category}
+            Filter <span className={styles.triangle}>▼</span>
           </button>
-        ))}
-        <button className={styles.filterButton}>More Categories</button>
+          {dropdownOpen && (
+            <div className={styles.dropdownContent}>
+              <div
+                className={styles.dropdownItem}
+                onClick={() => setDropdownOpen(false)}
+              >
+                Price Range (Custom)
+              </div>
+              <div
+                className={styles.dropdownItem}
+                onClick={() => setDropdownOpen(false)}
+              >
+                Price: Low to High
+              </div>
+              <div
+                className={styles.dropdownItem}
+                onClick={() => setDropdownOpen(false)}
+              >
+                Price: High to Low
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.rightSection}>
+        <div className={styles.categoryButtons}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`${styles.filterButton} ${
+                selectedCategory === category ? styles.active : ""
+              }`}
+              onClick={() => handleCategoryClick(category)}
+              type="button"
+            >
+              {category}
+            </button>
+          ))}
+          <button className={styles.filterButton}>More Categories</button>
+        </div>
       </div>
     </div>
   );

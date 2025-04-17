@@ -1,50 +1,25 @@
 .filterPanel {
   display: flex;
   align-items: center;
-  position: fixed;
   justify-content: flex-start;
+  position: fixed;
   transform: translateX(-50%);
-  top: 120px;
+  top: 13%;
   left: 50%;
-  width: 60%;
-  max-width: 800px;
+  width: 40%;
   height: 70px;
-  padding: 15px 30px;
-  background-color: #fff;
+  padding: 12px 24px;
+  background-color: rgb(248, 248, 248); /* Customize as needed */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border-radius: 10px;
+  gap: 10px; /* Reduced space between filter button and category buttons */
 }
-
-.categoryButtons {
+.leftSection {
   display: flex;
-  margin-left: 30px;
-  gap: 15px;
+  align-items: center;
+  margin-right: 10%;
 }
-
-.filterButton {
-  background-color: white;
-  border: 1px solid black;
-  padding: 8px 14px;
-  font-size: 14px;
-  color: black;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: none;
-}
-
-.filterButton:hover {
-  background-color: #f2f2f2;
-  color: black;
-}
-
-.active {
-  background-color: black;
-  color: white;
-  border: 1px solid black;
-}
-
-/* Dropdown */
 .dropdown {
   position: relative;
 }
@@ -94,7 +69,36 @@
   background-color: #f2f2f2;
 }
 
-/* Remove unwanted blue/focus outlines */
+/* Category buttons container */
+.categoryButtons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Keep nice spacing between category buttons */
+}
+
+.filterButton {
+  background-color: white;
+  border: 1px solid black;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: black;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: none;
+}
+
+.filterButton:hover {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.active {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+/* Remove blue outlines and box shadows */
 button,
 button:focus,
 button:active,
