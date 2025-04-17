@@ -1,0 +1,46 @@
+.profile {
+  position: absolute;
+  margin-left: 94%;
+}
+
+.profileIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 40px; /* Set width */
+  height: 40px; /* Set height */
+  border-radius: 50%; /* Make it circular */
+  display: flex; /* Center content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: #ffffff; /* Optional: Add background color */
+}
+
+.dropdown {
+  background-color: white; /* Set background color */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  z-index: 1000; /* Ensure it appears above other elements */
+  padding: 10px; /* Add padding */
+  position: absolute; /* Position dropdown */
+  top: 100%; /* Position below the button */
+  right: 0; /* Align to the right */
+}
+
+.dropdown ul {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.dropdown li {
+  padding: 8px 12px; /* Add padding to list items */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.2s; /* Smooth background transition */
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}

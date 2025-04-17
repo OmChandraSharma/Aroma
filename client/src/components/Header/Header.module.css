@@ -91,6 +91,7 @@
 
 /* Signup Button (Style from btn-1) */
 .signupButton {
+  margin-left: 15%; /* Add margin to maintain spacing */
   border: 1px solid;
   border-radius: 999px;
   box-sizing: border-box;
