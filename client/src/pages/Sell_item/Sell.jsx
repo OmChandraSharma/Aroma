@@ -1,103 +1,94 @@
-import { useState } from "react"; // Import useState hook for managing state
-import Header from "../../components/Header/Header.jsx"; // Import Header component
-import "./Sell.module.css"; // Import CSS file for styling
+import { useState } from "react";
+import Header from "../../components/Header/Header.jsx";
+import styles from "./Sell.module.css";
 
 const Sell = () => {
   console.log("sell page called");
 
-  // State variables for form inputs
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
   const [listingType, setListingType] = useState("normal");
   const [imagePreview, setImagePreview] = useState(null);
 
-  // Handle image file selection
   const handleImageChange = (event) => {
     const selectedFile = event.target.files[0];
-
-    // If a file was selected
     if (selectedFile) {
-      // Create a URL for the image to display preview
       const previewUrl = URL.createObjectURL(selectedFile);
       setImagePreview(previewUrl);
     }
   };
 
-  // Handle form submission
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
-    // Log the form data
     console.log("Form submitted with:", {
       productName,
       description,
       listingType,
-      hasImage: imagePreview ? true : false,
+      hasImage: !!imagePreview,
     });
 
-    // Here you would typically send the data to a server
     alert("Form submitted successfully!");
+
+    // Clear fields
+    setProductName("");
+    setDescription("");
+    setListingType("normal");
+    setImagePreview(null);
   };
 
   return (
-    <div className="sell-page">
-      {/* Include the Header component */}
+    <div className={styles.sellPage}>
       <Header />
 
-      <div className="container">
-        <h1 className="page-title">Sell Your Product</h1>
+      <div className={styles.container}>
+        <h1 className={styles.pageTitle}>Add your listing to the site</h1>
 
-        {/* Product listing form */}
-        <form className="sell-form" onSubmit={handleSubmit}>
-          <div className="form-content">
-            {/* Left side - Image upload area */}
-            <div className="image-area">
+        <form className={styles.sellForm} onSubmit={handleSubmit}>
+          <div className={styles.formContent}>
+            {/* Left - Image Upload */}
+            <div className={styles.imageArea}>
               <div
-                className="image-upload-box"
+                className={styles.imageUploadBox}
                 onClick={() => document.getElementById("file-input").click()}
               >
                 {imagePreview ? (
-                  // Show image preview if an image is selected
-                  <div className="preview-container">
+                  <div className={styles.previewContainer}>
                     <img
                       src={imagePreview}
                       alt="Product"
-                      className="preview-image"
+                      className={styles.previewImage}
                     />
                     <button
                       type="button"
-                      className="remove-button"
+                      className={styles.removeButton}
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent triggering the parent's onClick
-                        setImagePreview(null); // Clear the image preview
+                        e.stopPropagation();
+                        setImagePreview(null);
                       }}
                     >
                       +
                     </button>
                   </div>
                 ) : (
-                  // Show upload placeholder if no image is selected
-                  <div className="upload-placeholder">
-                    <div className="upload-icon">+</div>
+                  <div className={styles.uploadPlaceholder}>
+                    <div className={styles.uploadIcon}>+</div>
                     <p>Click to upload image</p>
                   </div>
                 )}
-
-                {/* Hidden file input - activated by clicking on the box */}
                 <input
                   type="file"
                   id="file-input"
-                  className="hidden-input"
+                  className={styles.hiddenInput}
                   accept="image/*"
                   onChange={handleImageChange}
                 />
               </div>
             </div>
 
-            {/* Right side - Product details */}
-            <div className="details-area">
-              {/* Product name input */}
-              <div className="input-group">
+            {/* Right - Product Details */}
+            <div className={styles.detailsArea}>
+              <div className={styles.inputGroup}>
                 <label htmlFor="product-name">Name of product</label>
                 <input
                   type="text"
@@ -109,12 +100,10 @@ const Sell = () => {
                 />
               </div>
 
-              {/* Listing type options */}
-              <div className="input-group">
+              <div className={styles.inputGroup}>
                 <label>Listing Type</label>
-                <div className="radio-options">
-                  {/* Normal listing option */}
-                  <div className="radio-option">
+                <div className={styles.radioOptions}>
+                  <div className={styles.radioOption}>
                     <input
                       type="radio"
                       id="normal"
@@ -126,8 +115,7 @@ const Sell = () => {
                     <label htmlFor="normal">Normal listing</label>
                   </div>
 
-                  {/* Bidding option */}
-                  <div className="radio-option">
+                  <div className={styles.radioOption}>
                     <input
                       type="radio"
                       id="bidding"
@@ -139,8 +127,7 @@ const Sell = () => {
                     <label htmlFor="bidding">Bidding</label>
                   </div>
 
-                  {/* Rent option */}
-                  <div className="radio-option">
+                  <div className={styles.radioOption}>
                     <input
                       type="radio"
                       id="rent"
@@ -154,8 +141,7 @@ const Sell = () => {
                 </div>
               </div>
 
-              {/* Description textarea */}
-              <div className="input-group">
+              <div className={styles.inputGroup}>
                 <label htmlFor="description">Description</label>
                 <textarea
                   id="description"
@@ -166,8 +152,7 @@ const Sell = () => {
                 ></textarea>
               </div>
 
-              {/* Submit button */}
-              <button type="submit" className="submit-button">
+              <button type="submit" className={styles.submitButton}>
                 Create Listing
               </button>
             </div>
