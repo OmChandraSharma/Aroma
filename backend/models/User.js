@@ -7,8 +7,10 @@ const userSchema = new mongoose.Schema({
 
   password: { type: String, required: true },
 
+  phone: {type : String , required: true},
+
   // Optional: future role support
-  role: { type: String, enum: ['buyer', 'seller', 'admin'], default: 'buyer' }
+  // role: { type: String, enum: ['buyer', 'seller', 'admin'], default: 'buyer' }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

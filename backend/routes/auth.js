@@ -8,14 +8,14 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 // Sign Up
 router.post("/signup", async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password , phone } = req.body;
 
     try {
         let existingUser = await User.findOne({ email });
         if (existingUser) return res.status(400).json({ msg: "User already exists" });
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ name, email, password: hashedPassword });
+        const newUser = new User({ name, email, password: hashedPassword ,phone});
 
         await newUser.save();
         res.status(201).json({ msg: "User created successfully" });
@@ -37,7 +37,7 @@ router.post("/login", async (req, res) => {
 
         const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "2h" });
 
-        res.json({ token, user: { id: user._id, name: user.name, email: user.email } });
+        res.json({ token, user: { id: user._id, name: user.name, email: user.email,phone: user.phone } });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
