@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -20,25 +18,37 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
-      localStorage.setItem("token", res.data.token);
+      const res = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        formData
+      );
+
+      localStorage.setItem("jwtToken", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+
       toast.success("Logged in successfully!");
-      console.log(res.data); // optionally store token
-      navigate("/"); // redirect to home
+      navigate("/");
     } catch (err) {
-        toast.error(err.response?.data?.msg || "Login failed");
-    }finally {
-        setLoading(false);
-      }
+      toast.error(err.response?.data?.msg || "Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className={styles.authContainer}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2>Login</h2>
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          required
+        />
         <div className={styles.passwordWrapper}>
           <input
             type={showPassword ? "text" : "password"}
@@ -47,7 +57,10 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <span onClick={() => setShowPassword(!showPassword)} className={styles.togglePassword}>
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            className={styles.togglePassword}
+          >
             {showPassword ? "🙈" : "👁️"}
           </span>
         </div>
