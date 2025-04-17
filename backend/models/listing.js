@@ -6,11 +6,11 @@ const listingSchema = new mongoose.Schema({
     required: true,
     ref: 'User'
   },
-  product_id: {
-    type: String,
-    required: true,
-    unique: true
-  },
+  // product_id: {
+  //   type: String,
+  //   required: true,
+  //   unique: true
+  // },
   product_name: {
     type: String,
     required: true
@@ -34,6 +34,13 @@ const listingSchema = new mongoose.Schema({
   is_biddable: {  // New field for bidding
     type: Boolean,
     default: false
+  },
+  is_avail_to_rent: {
+    type: String,
+  },
+  rent_price_day: {
+    type: Number,
+    default: 0
   },
   bid_time: {  // New field for bid window
     type: Date,

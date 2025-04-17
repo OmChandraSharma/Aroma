@@ -11,7 +11,10 @@ const rentalRequestSchema = new mongoose.Schema({
     required: true,
     ref: 'Listing'
   },
-  rent_duration: { 
+  rent_end_day:{
+    type: timestamps, 
+  },
+  rent_duration:{ 
     type: Number, // Duration in days or weeks
     required: true 
   },
@@ -19,11 +22,11 @@ const rentalRequestSchema = new mongoose.Schema({
     type: Number, // Rent price per day/week
     required: true
   },
-  status: {
-    type: String,
-    enum: ['pending', 'approved', 'rejected'],
-    default: 'pending'
-  },
+  // status: {
+  //   type: String,
+  //   enum: ['pending', 'approved', 'rejected'],
+  //   default: 'pending'
+  // },
   date: { type: Date, default: Date.now } // Timestamp of the rent request
 }, { timestamps: true });
 
