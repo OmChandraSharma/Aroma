@@ -51,7 +51,7 @@ const Sell = () => {
 
   return (
     <div className={styles.sellPage}>
-      <Header />
+      <Header className={styles.fixedHeader} />
       <div className={styles.container}>
         <h1 className={styles.pageTitle}>Add your listing to the site</h1>
         <form className={styles.sellForm} onSubmit={handleSubmit}>

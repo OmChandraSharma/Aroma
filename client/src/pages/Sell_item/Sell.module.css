@@ -270,3 +270,12 @@ textarea:focus {
   transform: rotate(-2deg) translate(-15px, 5px);
   z-index: 1;
 }
+
+.fixedHeader {
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white; /* Optional for contrast */
+}
