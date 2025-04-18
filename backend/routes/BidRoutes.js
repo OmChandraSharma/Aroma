@@ -7,11 +7,11 @@ const router = express.Router();
 const Order = require('../models/order.js');
 
 // const Bid = require('../models/Bid');
-const Listing = require('../models/listing');
-const Order = require('../models/order');
+// const Listing = require('../models/listing');
+// const Order = require('../models/order');
 
 // Place a bid on a product
-router.post('/bid/:listing_id', authMiddleware, async (req, res) => {
+router.post('/:listing_id', authMiddleware, async (req, res) => {
     const { bid_amount } = req.body;
     const user_id = req.user.id;
     const { listing_id } = req.params;
@@ -57,12 +57,15 @@ router.post('/bid/:listing_id', authMiddleware, async (req, res) => {
       if (!existingBid) {
         const newBid = new Bid({ user_id, listing_id, bid_amount, bid_end_time });
         await newBid.save();
+        listing.product_price = bid_amount,
         listing.bid_status = 1;
         await listing.save();
       } else {
         // Update existing bid
         existingBid.user_id = user_id;
         existingBid.bid_amount = bid_amount;
+        listing.product_price = bid_amount,
+        await listing.save();
         await existingBid.save();
       }
   
@@ -96,7 +99,7 @@ router.put('/close-bid/:bid_id', authMiddleware, async (req, res) => {
 
         // Only allow the seller to close the bid
         const listing = await Listing.findById(bid.listing_id);
-        if (!listing || listing.user_id.toString() !== req.user.id) {
+        if (!listing || listing.seller_id.toString() !== req.user.id) {
             return res.status(403).json({ message: 'Only the seller can close the bid' });
         }
 
@@ -105,7 +108,7 @@ router.put('/close-bid/:bid_id', authMiddleware, async (req, res) => {
         // res.status(200).json({ message: 'Bid closed successfully', bid });
 
         const order = new Order({
-            user_id: existingBid.user_id,
+            user_id: bid.user_id,
             listing_id: listing._id,
             product_name: listing.product_name,
             product_price: listing.product_price,
@@ -115,7 +118,7 @@ router.put('/close-bid/:bid_id', authMiddleware, async (req, res) => {
           await order.save();
     
           await Listing.findByIdAndDelete(listing._id);
-          await Bid.deleteOne({bid_id});
+          await Bid.findByIdAndDelete(bid_id);
           const seller_id = listing.seller_id
           const seller = await User.findById(seller_id);
           if (!seller) return res.status(404).json({ message: 'Seller not found' });

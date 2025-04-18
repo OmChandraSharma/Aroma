@@ -25,8 +25,7 @@ const User = require('./models/User');
 const cartRoutes = require('./routes/cartRoutes');
 const listingRoutes = require('./routes/listingRoutes');
 const authRoutes = require("./routes/auth");
-
-
+const bidRoutes = require("./routes/BidRoutes")
 
 dotenv.config(); //Loads variables like PORT, JWT_SECRET, MONGO_URI from a .env file into process.env.
 
@@ -114,6 +113,7 @@ app.get('/', async (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/list',listingRoutes);
+app.use('/api/bid',bidRoutes);
 //NEWWWW
 //  Error-handling middleware 
 app.use((err, req, res, next) => {
