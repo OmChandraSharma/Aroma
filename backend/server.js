@@ -1,3 +1,4 @@
+const logger = require('./logger');
 console.log("welcome! server is up!!");
 
 
@@ -28,6 +29,8 @@ dotenv.config(); //Loads variables like PORT, JWT_SECRET, MONGO_URI from a .env 
 const bodyParser = require('body-parser'); 
 app.use(bodyParser.json());
 
+
+
 app.use(cors());  //Allows requests from other origins (e.g., frontend on different port).Parses incoming request body as JSON (important for POST/PUT APIs).
 // app.use(express.json());
 
@@ -36,7 +39,11 @@ const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Now you can access files like http://localhost:5000/uploads/image.jpg
 // It tells Express: "If anyone requests http://localhost:5000/uploads/somefile.jpg, serve them the actual image stored in the uploads/ folder."
 // console.log('__dirname:', __dirname); // 👈 This line shows the current directory
-
+// Log every request (info-level) NEWWW
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 // home page rendering of 12 images to post it in grid 
 app.get('/', async (req, res) => {
@@ -53,11 +60,18 @@ app.get('/', async (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/list',listingRoutes);
+//NEWWWW
+//  Error-handling middleware 
+app.use((err, req, res, next) => {
+  logger.error(`${err.message} - ${req.method} ${req.originalUrl}`);
+  res.status(500).json({ error: "Internal Server Error" });
+});
 
 const PORT = process.env.PORT || 3000;
 
+
 app.listen(PORT,()=>{
-    console.log("listening on port 3000");
+    logger.info("listening on port 3000"); //LOGGER.INFO KRA
 })  // server iss room(port) pr hai
 
 const updatelog = (product_name, seller_account, buyer_account, price) => {
