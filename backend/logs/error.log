@@ -1,1 +1,27 @@
 [2025-04-18T02:35:04.939Z] ERROR: This is a test error for logging - GET /test-error
+[2025-03-23T17:27:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-24T20:09:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-27T04:18:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-28T02:47:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-28T16:23:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-29T09:16:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-30T06:46:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-03-30T11:51:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-03-30T22:00:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-03-31T22:32:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-01T14:22:22.746Z] ERROR: Unauthorized access attempt - GET /api/cart
+[2025-04-01T17:28:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-04-01T23:19:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-04-05T18:29:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-08T02:29:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-08T10:45:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-08T11:00:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-09T08:44:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-09T09:56:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-04-09T14:40:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-10T15:12:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-04-12T11:43:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-04-14T17:19:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-04-14T19:34:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-04-14T19:48:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-04-16T23:01:22.746Z] ERROR: Unhandled exception in rental approval route

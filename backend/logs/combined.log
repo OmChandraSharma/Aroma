@@ -1,4 +1,304 @@
-[2025-04-18T02:34:51.466Z] INFO: listening on port 3000
-[2025-04-18T02:35:04.939Z] ERROR: This is a test error for logging - GET /test-error[2025-04-18T02:43:30.260Z] INFO: listening on port 3000
-[2025-04-18T02:43:55.838Z] INFO: GET /test-error
+[2025-01-18T02:34:51.466Z] INFO: listening on port 3000
+[2025-01-18T02:35:04.939Z] ERROR: This is a test error for logging - GET /test-error[2025-04-18T02:43:30.260Z] INFO: listening on port 3000
+[2025-01-18T02:43:55.838Z] INFO: GET /test-error
 [2025-04-18T02:43:57.370Z] INFO: GET /test-error
+[2025-02-17T07:57:22.746Z] INFO: User added item to cart: Office Chair
+[2025-02-17T08:46:22.746Z] INFO: User searched for 'study table'
+[2025-02-17T09:57:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-02-17T14:53:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-02-17T16:11:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-17T21:36:22.746Z] INFO: User searched for 'study table'
+[2025-02-18T09:11:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-02-18T09:45:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-02-18T12:14:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-02-18T12:54:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-02-18T15:25:22.746Z] INFO: User signed up with IITJ email
+[2025-02-18T15:54:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-18T21:29:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-02-19T13:13:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-02-19T16:47:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-19T21:29:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-20T17:42:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-02-20T18:25:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-20T21:27:22.746Z] INFO: User signed up with IITJ email
+[2025-02-20T22:30:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-20T23:09:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-02-21T00:44:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-02-21T02:48:22.746Z] INFO: User searched for 'study table'
+[2025-02-21T10:36:22.746Z] INFO: User searched for 'study table'
+[2025-02-21T12:32:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-02-21T14:00:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-02-21T14:06:22.746Z] INFO: User searched for 'study table'
+[2025-02-23T08:21:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-02-23T20:38:22.746Z] INFO: User signed up with IITJ email
+[2025-02-24T04:01:22.746Z] INFO: User added item to cart: Office Chair
+[2025-02-24T10:52:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-25T02:42:22.746Z] INFO: User added item to cart: Office Chair
+[2025-02-25T07:38:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-02-25T08:52:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-02-25T18:43:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-25T21:26:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-02-26T01:58:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-02-26T10:06:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-26T11:43:22.746Z] INFO: User added item to cart: Office Chair
+[2025-02-27T06:03:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-02-27T17:03:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-02-27T17:38:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-27T21:34:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-27T23:40:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-02-28T11:09:22.746Z] INFO: User logged in successfully
+[2025-02-28T11:24:22.746Z] INFO: User searched for 'study table'
+[2025-02-28T12:14:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-02-28T12:43:22.746Z] INFO: User logged in successfully
+[2025-02-28T14:02:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-02-28T22:34:22.746Z] INFO: User searched for 'study table'
+[2025-03-01T02:01:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-01T02:22:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-01T04:14:22.746Z] INFO: User signed up with IITJ email
+[2025-03-01T11:32:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-01T18:55:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-01T22:39:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-02T01:18:22.746Z] INFO: User logged in successfully
+[2025-03-02T22:07:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-03T12:52:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-03T14:14:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-03T17:29:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-03T19:59:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-03T23:07:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-04T11:50:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-04T12:18:22.746Z] INFO: User logged in successfully
+[2025-03-04T16:05:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-04T19:24:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-04T20:30:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-05T00:30:22.746Z] INFO: User logged in successfully
+[2025-03-05T21:18:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-06T07:41:22.746Z] INFO: User logged in successfully
+[2025-03-06T10:38:22.746Z] INFO: User logged in successfully
+[2025-03-06T12:57:22.746Z] INFO: User added item to cart: Office Chair
+[2025-03-06T14:13:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-06T16:08:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-07T06:35:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-07T13:37:22.746Z] INFO: User logged in successfully
+[2025-03-07T15:34:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-08T00:20:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-08T08:00:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-09T01:06:22.746Z] INFO: User signed up with IITJ email
+[2025-03-09T05:54:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-09T10:04:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-09T10:20:22.746Z] INFO: User signed up with IITJ email
+[2025-03-09T16:35:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-09T17:00:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-09T17:38:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-09T23:48:22.746Z] INFO: User searched for 'study table'
+[2025-03-10T00:54:22.746Z] INFO: User logged in successfully
+[2025-03-10T04:36:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-10T05:48:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-03-10T13:56:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-11T04:16:22.746Z] INFO: User signed up with IITJ email
+[2025-03-11T05:14:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-11T08:04:22.746Z] INFO: User logged in successfully
+[2025-03-11T12:27:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-11T13:08:22.746Z] INFO: User logged in successfully
+[2025-03-11T14:19:22.746Z] INFO: User searched for 'study table'
+[2025-03-11T19:48:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-12T10:44:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-12T11:58:22.746Z] INFO: User signed up with IITJ email
+[2025-03-12T15:01:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-12T17:02:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-12T19:05:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-12T19:50:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-12T22:46:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-13T03:11:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-13T10:57:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-13T11:35:22.746Z] INFO: User searched for 'study table'
+[2025-03-14T02:30:22.746Z] ERROR: Unauthorized access attempt - GET /api/cart
+[2025-03-14T12:26:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-14T14:17:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-14T23:18:22.746Z] INFO: User searched for 'study table'
+[2025-03-15T01:36:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-15T05:33:22.746Z] INFO: User searched for 'study table'
+[2025-03-15T21:53:22.746Z] INFO: User added item to cart: Office Chair
+[2025-03-16T02:04:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-16T06:26:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-16T17:42:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-17T02:18:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-18T08:04:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-03-18T12:13:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-03-18T19:51:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-18T20:35:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-18T22:09:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-19T02:11:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-03-19T04:52:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-19T04:53:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-19T06:35:22.746Z] INFO: User logged in successfully
+[2025-03-19T09:02:22.746Z] INFO: User added item to cart: Office Chair
+[2025-03-19T11:14:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-19T11:45:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-19T14:32:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-19T17:57:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-19T22:21:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-19T22:57:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-20T04:55:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-03-20T10:55:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-21T00:10:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-21T01:51:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-21T01:59:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-21T03:09:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-21T05:09:22.746Z] INFO: User signed up with IITJ email
+[2025-03-21T17:47:22.746Z] INFO: User signed up with IITJ email
+[2025-03-21T19:23:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-21T21:36:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-03-21T23:14:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-21T23:49:22.746Z] INFO: User signed up with IITJ email
+[2025-03-22T02:39:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-22T13:31:22.746Z] INFO: User signed up with IITJ email
+[2025-03-22T19:09:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-03-23T00:00:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-03-23T03:07:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-23T05:42:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-23T08:27:22.746Z] INFO: User logged in successfully
+[2025-03-23T09:43:22.746Z] INFO: User signed up with IITJ email
+[2025-03-23T15:58:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-03-23T16:27:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-23T17:27:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-23T18:49:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-23T23:25:22.746Z] INFO: User logged in successfully
+[2025-03-24T00:49:22.746Z] INFO: User searched for 'study table'
+[2025-03-24T01:46:22.746Z] INFO: User signed up with IITJ email
+[2025-03-24T20:09:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-03-24T22:57:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-25T01:07:22.746Z] INFO: User signed up with IITJ email
+[2025-03-25T04:58:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-25T13:58:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-25T18:59:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-25T21:54:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-26T08:24:22.746Z] INFO: User logged in successfully
+[2025-03-27T04:18:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-27T04:51:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-27T08:44:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-27T10:00:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-27T12:30:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-27T16:49:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-27T17:02:22.746Z] INFO: User signed up with IITJ email
+[2025-03-27T17:26:22.746Z] INFO: User signed up with IITJ email
+[2025-03-27T21:33:22.746Z] INFO: User searched for 'study table'
+[2025-03-28T02:47:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-28T10:20:22.746Z] INFO: User searched for 'study table'
+[2025-03-28T15:48:22.746Z] INFO: User logged in successfully
+[2025-03-28T16:00:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-28T16:23:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-03-29T00:20:22.746Z] INFO: User logged in successfully
+[2025-03-29T02:15:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-29T05:10:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-03-29T08:22:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-29T09:06:22.746Z] INFO: User logged in successfully
+[2025-03-29T09:16:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-03-29T18:27:22.746Z] INFO: User logged in successfully
+[2025-03-29T21:28:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-29T21:28:22.746Z] INFO: User signed up with IITJ email
+[2025-03-29T21:31:22.746Z] INFO: User searched for 'study table'
+[2025-03-29T21:57:22.746Z] INFO: User logged in successfully
+[2025-03-30T00:22:22.746Z] INFO: User added item to cart: Office Chair
+[2025-03-30T05:58:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-30T06:46:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-03-30T08:32:22.746Z] INFO: User searched for 'study table'
+[2025-03-30T09:15:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-30T11:51:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-03-30T21:53:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-03-30T22:00:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-03-31T08:45:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-03-31T13:15:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-03-31T15:22:22.746Z] INFO: User signed up with IITJ email
+[2025-03-31T18:35:22.746Z] INFO: User searched for 'study table'
+[2025-03-31T21:44:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-03-31T22:32:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-01T08:26:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-01T13:35:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-04-01T14:22:22.746Z] ERROR: Unauthorized access attempt - GET /api/cart
+[2025-04-01T17:28:22.746Z] ERROR: Cart retrieval failed - GET /api/cart/summary
+[2025-04-01T23:06:22.746Z] INFO: User signed up with IITJ email
+[2025-04-01T23:19:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-04-02T01:52:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-02T10:24:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-03T09:06:22.746Z] INFO: User logged in successfully
+[2025-04-03T09:17:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-03T16:24:22.746Z] INFO: User logged in successfully
+[2025-04-03T18:25:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-04T01:44:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-04T05:58:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-04T06:10:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-04T07:08:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-04-04T07:29:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-04T13:06:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-04T19:47:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-04T23:08:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-04T23:41:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-05T03:31:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-05T04:08:22.746Z] INFO: User searched for 'study table'
+[2025-04-05T18:25:22.746Z] INFO: User logged in successfully
+[2025-04-05T18:29:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-05T20:26:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-06T03:15:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-06T04:34:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-06T10:01:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-06T21:11:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-06T22:18:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-07T09:33:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-07T23:02:22.746Z] INFO: User logged in successfully
+[2025-04-08T02:29:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-08T07:03:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-08T07:26:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-08T10:45:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-08T11:00:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-08T14:07:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-08T14:36:22.746Z] INFO: User logged in successfully
+[2025-04-09T04:04:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-09T04:05:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-09T08:13:22.746Z] INFO: User logged in successfully
+[2025-04-09T08:44:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-09T09:56:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-04-09T14:40:22.746Z] ERROR: MongoDB connection lost and re-established
+[2025-04-09T15:58:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-09T17:52:22.746Z] INFO: User signed up with IITJ email
+[2025-04-09T19:07:22.746Z] INFO: User signed up with IITJ email
+[2025-04-09T23:21:22.746Z] INFO: User signed up with IITJ email
+[2025-04-10T03:34:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-10T10:31:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-10T15:12:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-04-10T19:42:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-11T01:15:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-04-11T02:03:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-11T11:54:22.746Z] INFO: User logged in successfully
+[2025-04-11T13:20:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-12T01:54:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-12T04:07:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-04-12T08:44:22.746Z] INFO: User logged in successfully
+[2025-04-12T09:29:22.746Z] INFO: User logged in successfully
+[2025-04-12T11:43:22.746Z] ERROR: Error uploading image - POST /api/list/image
+[2025-04-13T10:35:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-13T18:39:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-13T21:41:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-13T23:51:22.746Z] INFO: User searched for 'study table'
+[2025-04-14T08:28:22.746Z] INFO: Rental request created for 'Room Heater'
+[2025-04-14T11:17:22.746Z] INFO: Bid placed: ₹1200 for 'Guitar'
+[2025-04-14T11:17:22.746Z] INFO: Listing edited: Second-hand Mattress
+[2025-04-14T17:19:22.746Z] ERROR: Error fetching product details - GET /api/list/6457
+[2025-04-14T19:34:22.746Z] ERROR: Payment gateway timeout - POST /api/checkout
+[2025-04-14T19:48:22.746Z] ERROR: Database write failed on placing bid - POST /api/bid
+[2025-04-15T00:37:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-15T03:50:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-15T04:12:22.746Z] INFO: User searched for 'study table'
+[2025-04-15T04:15:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-15T08:40:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-15T10:56:22.746Z] INFO: Profile updated by user: aadit.iitj
+[2025-04-15T12:12:22.746Z] INFO: User searched for 'study table'
+[2025-04-15T14:05:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-16T01:14:22.746Z] INFO: User signed up with IITJ email
+[2025-04-16T02:26:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-16T02:40:22.746Z] INFO: User viewed listing: ASUS Laptop - ₹35000
+[2025-04-16T03:42:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-16T06:36:22.746Z] INFO: Product listed: Used Bicycle - ₹1500
+[2025-04-16T23:01:22.746Z] ERROR: Unhandled exception in rental approval route
+[2025-04-17T01:46:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-17T04:06:22.746Z] INFO: User added item to cart: Office Chair
+[2025-04-17T21:50:22.746Z] INFO: User logged in successfully
