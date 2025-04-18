@@ -8,48 +8,51 @@ const ProductGrid = ({ selectedCategory }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log("➡️ Fetching products for category:", selectedCategory);
+        let url;
 
-        const url = `http://172.31.95.71:3000/`;
-        console.log("🔗 API URL:", url);
+        if (!selectedCategory) {
+          console.warn("⚠️ No category selected. Skipping fetch.");
+          return;
+        } else if (selectedCategory === "All") {
+          url = "http://172.31.95.71:3000/api/list/render/All";
+        } else {
+          url = `http://172.31.95.71:3000/api/list/category/${selectedCategory}`;
+        }
+
+        console.log("🔗 Fetching from:", url);
 
         const res = await fetch(url);
         const data = await res.json();
 
-        console.log("📦 Raw response data:", data);
+        if (!res.ok) {
+          throw new Error(data.message || "Failed to fetch products");
+        }
 
-        const items = data.items || data;
-        console.log("✅ Parsed items:", items);
-
+        const items = data.items || data; // Adjust if `.items` only comes from /category
         setProducts(items);
+        console.log("✅ Products received:", items);
       } catch (err) {
-        console.error("❌ Failed to fetch products:", err);
+        console.error("❌ Failed to fetch products:", err.message);
         setProducts([]);
       }
     };
 
-    if (selectedCategory) {
-      fetchProducts();
-    } else {
-      console.warn("⚠️ No category selected. Skipping fetch.");
-    }
+    fetchProducts();
   }, [selectedCategory]);
 
   return (
     <div className={styles.gridContainer}>
-      {products.length === 0 && (
+      {products.length === 0 ? (
         <p style={{ textAlign: "center", marginTop: "2rem" }}>
           No products found.
         </p>
-      )}
-      {products.map((product) => {
-        console.log("🧱 Rendering product:", product._id, product.product_name);
-        return (
+      ) : (
+        products.map((product) => (
           <div key={product._id} className={styles.cardWrapper}>
             <ProductCard product={product} />
           </div>
-        );
-      })}
+        ))
+      )}
     </div>
   );
 };
