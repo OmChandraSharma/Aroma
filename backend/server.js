@@ -69,6 +69,26 @@ app.use(
     })
 );
 
+// Custom token for cart routes
+morgan.token("cartOnly", (req, res) => {
+    if (req.url.includes("/api/cart/")) {
+        return `${req.method} ${req.url} ${res.statusCode} - ${new Date().toISOString()}`;
+    }
+    return null; // skip other routes
+});
+const logStream2 = fs.createWriteStream(path.join(logDirectory, "cart.log"), { flags: "a" });
+app.use(
+    morgan(":cartOnly", {
+        stream: {
+            write: (message) => {
+                if (message.trim()) {
+                    console.log("[CART LOG]", message.trim());
+                    logStream2.write(message + "\n");
+                }
+            },
+        },
+    })
+);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Now you can access files like http://localhost:5000/uploads/image.jpg
 // It tells Express: "If anyone requests http://localhost:5000/uploads/somefile.jpg, serve them the actual image stored in the uploads/ folder."

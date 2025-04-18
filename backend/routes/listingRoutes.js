@@ -57,7 +57,7 @@ router.get('/:product_name', async (req, res) => {
         product_name: product.product_name,
         product_image: product.product_image,
         product_price: product.product_price,
-        bid_status:item.bid_status, // boolean 
+        bid_status:product.bid_status, // boolean 
         rent_status:product.rent_status,
         is_biddable:product.is_biddable,
         avail_to_rent:product.is_avail_to_rent, // boolean 
@@ -76,7 +76,7 @@ router.get('/:product_name', async (req, res) => {
 
 
 // product card 
-router.post('/:product_id', authMiddleware, async (req, res) => {
+router.post('/:product_id', async (req, res) => {
   try {
     const { product_id } = req.params;
     const listing = await Listing.findOne({ _id: product_id });
@@ -116,7 +116,7 @@ router.post('/:product_id', authMiddleware, async (req, res) => {
   
       // Create order
       const newOrder = new Order({
-        user_id: req.userId,
+        user_id: req.user.id,
         listing_id: product._id,
         product_name: product.product_name,
         product_price: product.product_price,
@@ -182,7 +182,15 @@ router.get('/:category_name', async (req, res) => {
       res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
-
+router.get('/All', async (req, res) => {
+  try {
+    const listings = await Listing.find(); // Fetch top 12 listings
+    res.status(200).json(listings);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
 // In your listing routes
 router.get('/items/filter', async (req, res) => {
   const { category, priceMin, priceMax } = req.query;

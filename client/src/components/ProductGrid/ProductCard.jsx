@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
         className={styles.image}
       />
       <h3 className={styles.title}>{product.product_name}</h3>
-      <p className={styles.price}>₹{product.product_price}</p>
+      <p className={styles.price}>{product.product_price}</p>
     </div>
   );
 };
