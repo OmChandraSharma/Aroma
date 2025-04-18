@@ -10,7 +10,7 @@ const ProductGrid = ({ selectedCategory }) => {
       try {
         console.log("➡️ Fetching products for category:", selectedCategory);
 
-        const url = `http://localhost:3000/`;
+        const url = `http://172.31.95.71:3000/`;
         console.log("🔗 API URL:", url);
 
         const res = await fetch(url);
@@ -38,7 +38,9 @@ const ProductGrid = ({ selectedCategory }) => {
   return (
     <div className={styles.gridContainer}>
       {products.length === 0 && (
-        <p style={{ textAlign: "center", marginTop: "2rem" }}>No products found.</p>
+        <p style={{ textAlign: "center", marginTop: "2rem" }}>
+          No products found.
+        </p>
       )}
       {products.map((product) => {
         console.log("🧱 Rendering product:", product._id, product.product_name);

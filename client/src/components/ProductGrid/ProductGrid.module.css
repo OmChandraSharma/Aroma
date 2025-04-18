@@ -11,6 +11,6 @@
 
 .cardWrapper {
   flex: 0 0 calc(25% - 12px); /* 4 cards per row */
-  height: 100px;
+  height: 350px;
   box-sizing: border-box;
 }
