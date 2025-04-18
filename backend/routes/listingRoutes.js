@@ -92,9 +92,6 @@ router.post('/:product_id', authMiddleware, async (req, res) => {
   }
 });
 
-
-
-
   // Buy item, decrease count, and remove from cart if present
   router.post('/buy/:product_id', authMiddleware, async (req, res) => {
     const { product_id } = req.params;

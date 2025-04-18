@@ -8,10 +8,18 @@ const ProductGrid = ({ selectedCategory }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const url = `http://localhost:3000/api/list/${selectedCategory}`;
+        const url = `http://localhost:3000/`; // or your real API
         const res = await fetch(url);
         const data = await res.json();
-        setProducts(data.items || []);
+
+        const transformedProducts = (data.items || []).map((item) => ({
+          _id: item._id.$oid || item._id, // if _id is an object from MongoDB
+          title: item.product_name,
+          imageUrl: item.product_image,
+          price: `₹${item.product_price}`,
+        }));
+
+        setProducts(transformedProducts);
       } catch (err) {
         console.error("Failed to fetch products:", err);
         setProducts([]);
