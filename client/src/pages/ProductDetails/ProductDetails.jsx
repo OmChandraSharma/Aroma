@@ -96,7 +96,7 @@ const ProductDetails = () => {
     }
 
     try {
-      const res = await fetch(`http://172.31.95.71:3000/api/rental/${productId}`, {
+      const res = await fetch(`http://172.31.95.71:3000/api/list/rental/${productId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

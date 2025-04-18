@@ -9,14 +9,96 @@ const Order = require('../models/order.js');
 // const Bid = require('../models/Bid');
 // const Listing = require('../models/listing');
 // const Order = require('../models/order');
-
-// Place a bid on a product
+// router.post("/:listing_id", requireLogin, async (req, res) => {
+//     try {
+//       console.log("Incoming bid request");
+  
+//       const listing = await Listing.findById(req.params.listing_id);
+//       console.log("Fetched listing:", listing);
+  
+//       if (!listing) {
+//         console.log("Listing not found");
+//         return res.status(404).json({ error: "Listing not found" });
+//       }
+  
+//       if (listing.biddable !== true) {
+//         console.log("Listing not biddable");
+//         return res.status(400).json({ error: "Product is not open for bidding" });
+//       }
+  
+//       const { bid_amount } = req.body;
+//       console.log("Bid amount:", bid_amount);
+  
+//       let existingBid = await Bid.findOne({ listing: listing._id });
+//       console.log("Existing bid:", existingBid);
+  
+//       const currentTime = new Date();
+  
+//       // Bid expired
+//       if (existingBid && currentTime > existingBid.bid_end_time) {
+//         console.log("Bid has expired");
+  
+//         const order = new Order({
+//           buyer: existingBid.bidder,
+//           seller: listing.user,
+//           listing: listing._id,
+//           product_name: listing.product_name,
+//           product_desc: listing.product_desc,
+//           product_price: existingBid.bid_amount,
+//           type: "bid",
+//         });
+  
+//         await order.save();
+//         await Listing.findByIdAndDelete(listing._id);
+  
+//         return res.status(400).json({ error: "Bidding time is over. Product sold." });
+//       }
+  
+//       // Bid active
+//       if (!existingBid || bid_amount > existingBid.bid_amount) {
+//         const bid_end_time = existingBid ? existingBid.bid_end_time : new Date(Date.now() + 15 * 60 * 1000);
+  
+//         if (!existingBid) {
+//           console.log("Creating new bid");
+//           const newBid = new Bid({
+//             listing: listing._id,
+//             bidder: req.user._id,
+//             bid_amount,
+//             bid_end_time,
+//           });
+//           await newBid.save();
+//         } else {
+//           console.log("Updating existing bid");
+//           existingBid.bid_amount = bid_amount;
+//           existingBid.bidder = req.user._id;
+//           await existingBid.save();
+//         }
+  
+//         listing.current_bid_price = bid_amount;
+//         listing.bid_status = 1;
+//         await listing.save();
+  
+//         return res.status(201).json({
+//           message: "Bid placed successfully",
+//           current_bid_price: bid_amount,
+//           bid_end_time,
+//         });
+//       } else {
+//         return res.status(400).json({ error: "Your bid must be higher than the current highest bid." });
+//       }
+//     } catch (err) {
+//       console.error("Error placing bid:", err);
+//       res.status(500).json({ error: "Server error while placing bid." });
+//     }
+//   });
+//Place a bid on a product
 router.post('/:listing_id', authMiddleware, async (req, res) => {
     const { bid_amount } = req.body;
     const user_id = req.user.id;
     const { listing_id } = req.params;
   
     try {
+        console.log("Incoming bid request");
       const listing = await Listing.findById(listing_id);
       if (!listing) return res.status(404).json({ message: 'Listing not found' });
       if (!listing.is_biddable) return res.status(400).json({ message: 'Item is not biddable' });
