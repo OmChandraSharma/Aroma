@@ -7,7 +7,6 @@ exports.createListing = async (req, res) => {
 
     // Extract fields from the frontend request
     const {
-      seller_id,
       product_name,
       category,
       product_price,
@@ -24,7 +23,7 @@ exports.createListing = async (req, res) => {
 
     // Create new listing
     const newListing = new Listing({
-      seller_id: seller_id,
+      seller_id: req.user.id,
       product_name,
       category,
       product_price,

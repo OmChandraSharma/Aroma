@@ -37,7 +37,7 @@ upload = require('../middlewares/uploadCloudinary');
 const { createListing } = require('../controllers/ListingController');
 const { conformsTo } = require('lodash');
 // Add listings by seller to the database
-router.post('/upload', upload.single('image'), createListing);
+router.post('/upload',authMiddleware, upload.single('image'), createListing);
 
 
 

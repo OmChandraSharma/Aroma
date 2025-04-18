@@ -3,6 +3,8 @@ console.log("welcome! server is up!!");
 
 
 
+const morgan = require("morgan");
+
 var fs = require('fs'); // file handling package 
 var _ = require("lodash"); // this package is used for data manipulation , explore different functionalities
 var os = require('os') // this package to know the details of the system 
@@ -24,6 +26,8 @@ const cartRoutes = require('./routes/cartRoutes');
 const listingRoutes = require('./routes/listingRoutes');
 const authRoutes = require("./routes/auth");
 
+
+
 dotenv.config(); //Loads variables like PORT, JWT_SECRET, MONGO_URI from a .env file into process.env.
 
 const bodyParser = require('body-parser'); 
@@ -35,6 +39,36 @@ app.use(cors());  //Allows requests from other origins (e.g., frontend on differ
 // app.use(express.json());
 
 const path = require('path');
+
+// Create a write stream to save logs (append mode)
+const logDirectory = path.join(__dirname, "logs");
+if (!fs.existsSync(logDirectory)) {
+    fs.mkdirSync(logDirectory);
+}
+const logStream = fs.createWriteStream(path.join(logDirectory, "auth.log"), { flags: "a" });
+
+// Create custom morgan token to log only auth-related routes
+morgan.token("authOnly", (req, res) => {
+    if (req.url.includes("/signup") || req.url.includes("/login")) {
+        return `${req.method} ${req.url} ${res.statusCode} - ${new Date().toISOString()}`;
+    }
+    return null; // skip other routes
+});
+
+// Use morgan middleware with the custom format
+app.use(
+    morgan(":authOnly", {
+        stream: {
+            write: (message) => {
+                if (message.trim()) {
+                    console.log("[AUTH LOG]", message.trim());     // print to console
+                    logStream.write(message + "\n");              // write to file
+                }
+            },
+        },
+    })
+);
+
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Now you can access files like http://localhost:5000/uploads/image.jpg
 // It tells Express: "If anyone requests http://localhost:5000/uploads/somefile.jpg, serve them the actual image stored in the uploads/ folder."

@@ -5,6 +5,7 @@ const User = require("../models/User");
 const router = express.Router();
 require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET;
+const { logStream } = require("../");
 
 // Sign Up
 router.post("/signup", async (req, res) => {
@@ -17,7 +18,7 @@ router.post("/signup", async (req, res) => {
         if (!emailRegex.test(email)) {
             return res.status(400).json({ msg: "Only IIT Jodhpur emails are allowed" });
         }
-        
+
         let existingUser = await User.findOne({ email });
         if (existingUser) return res.status(400).json({ msg: "User already exists" });
 
