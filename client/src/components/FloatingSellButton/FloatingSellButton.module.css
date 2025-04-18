@@ -1,7 +1,7 @@
 .sellButton {
-  position: absolute;       /* changed from relative */
-  bottom: 8%;               /* adjust as needed */
-  right: 4%;                /* adjust as needed */
+  position: fixed; /* changed from relative */
+  bottom: 8%; /* adjust as needed */
+  right: 2%; /* adjust as needed */
   border: 1px solid;
   border-radius: 999px;
   box-sizing: border-box;
