@@ -4,6 +4,8 @@ exports.createListing = async (req, res) => {
   try {
     const imageUrl = req.file.path; // Cloudinary image URL
     const imagePublicId = req.file.filename; // for deletion (optional)
+    console.log("REQ FILE:", req.file);
+    console.log("REQ BODY:", req.body);
 
     // Extract fields from the frontend request
     const {

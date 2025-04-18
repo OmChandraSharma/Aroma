@@ -55,7 +55,7 @@ const listingSchema = new mongoose.Schema({
   bid_status: { type: Boolean, default: 0 }, // 'active', 'expired', etc.
   again_avail_to_rent:{
     type: Date,
-    default: Date.now()
+    required: false
   }
 
 }, { timestamps: true });

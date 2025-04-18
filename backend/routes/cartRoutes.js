@@ -70,7 +70,7 @@ router.get('/view-cart', authMiddleware, async (req, res) => {
   
 
 // update cart
-router.put('/cart/:product_id', authMiddleware, async (req, res) => {
+router.put('/:product_id', authMiddleware, async (req, res) => {
     const { action } = req.body; // 'increase', 'decrease', or 'delete'
     const { product_id } = req.params;
     const userId = req.user.id;
