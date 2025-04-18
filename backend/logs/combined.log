@@ -302,3 +302,12 @@
 [2025-04-17T01:46:22.746Z] INFO: User added item to cart: Office Chair
 [2025-04-17T04:06:22.746Z] INFO: User added item to cart: Office Chair
 [2025-04-17T21:50:22.746Z] INFO: User logged in successfully
+[2025-04-18T03:08:24.392Z] INFO: listening on port 3000
+[2025-04-18T03:08:35.045Z] INFO: GET /
+[2025-04-18T03:08:35.050Z] INFO: GET /
+[2025-04-18T03:08:38.707Z] INFO: GET /
+[2025-04-18T03:08:38.709Z] INFO: GET /
+[2025-04-18T03:10:19.767Z] INFO: POST /api/list/buy/6801af77a4ccdd3c122b2b0b
+[2025-04-18T03:12:17.810Z] INFO: listening on port 3000
+[2025-04-18T03:12:46.802Z] INFO: listening on port 3000
+[2025-04-18T03:12:51.261Z] INFO: POST /api/list/buy/6801af77a4ccdd3c122b2b0b

@@ -4,7 +4,7 @@ const Listing = require('../models/listing'); // listing schema
 const authMiddleware = require('../authMiddleware');
 const Order = require('../models/order');
 const router = express.Router();
-
+const User = require('../models/User')
 
 // // ✅ Switch between cloud and local upload
 // const upload = require('../middlewares/uploadLocal'); // Change to uploadCloudinary when needed
