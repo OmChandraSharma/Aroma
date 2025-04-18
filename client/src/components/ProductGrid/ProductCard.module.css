@@ -18,3 +18,7 @@
   object-fit: cover;
   margin-bottom: 8px;
 }
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,18 +1,30 @@
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import styles from "./ProductGrid.module.css";
 
-const dummyProducts = Array.from({ length: 12 }, (_, index) => ({
-  id: index + 1,
-  title: `Product ${index + 1}`,
-  price: `$${(index + 1) * 10}`,
-  imageUrl: "https://via.placeholder.com/150",
-}));
+const ProductGrid = ({ selectedCategory }) => {
+  const [products, setProducts] = useState([]);
 
-const ProductGrid = () => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const url = `http://localhost:3000/api/list/${selectedCategory}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        setProducts(data.items || []);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        setProducts([]);
+      }
+    };
+
+    fetchProducts();
+  }, [selectedCategory]);
+
   return (
     <div className={styles.gridContainer}>
-      {dummyProducts.map((product) => (
-        <div key={product.id} className={styles.cardWrapper}>
+      {products.map((product) => (
+        <div key={product._id} className={styles.cardWrapper}>
           <ProductCard product={product} />
         </div>
       ))}

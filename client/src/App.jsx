@@ -6,6 +6,7 @@ import Login from "./pages/Auth/Login.jsx";
 import Signup from "./pages/Auth/Signup.jsx";
 import CartPage from "./pages/cart/Cart.jsx";
 import Sell from "./pages/Sell_item/Sell.jsx";
+import ProductDetails from "./pages/ProductDetails/ProductDetails.jsx"; // NEW
 
 import { saveToken } from "./utils/auth.js";
 import "./App.css";
@@ -28,6 +29,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/sell" element={<Sell />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />{" "}
+        {/* NEW */}
       </Routes>
     </Router>
   );

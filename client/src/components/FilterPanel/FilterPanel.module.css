@@ -1,22 +1,22 @@
 .filterPanel {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  height: 60px;
-  flex-shrink: 0;
-  /* padding: 12px 24px; */
-  background-color: rgb(248, 248, 248); /* Customize as needed */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  width: 50%;
+  background-color: #f8f8f8;
+  border-radius: 16px; /* more rounded edges */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  border-radius: 10px;
-  gap: 10px; /* Reduced space between filter button and category buttons */
+  box-sizing: border-box;
+  gap: 20px;
 }
+
 .leftSection {
-  display: flex;
-  align-items: center;
-  margin-right: 10%;
+  flex: 0 0 auto;
+  margin-right: 8%;
 }
+
 .dropdown {
   position: relative;
 }
@@ -25,15 +25,11 @@
   background-color: white;
   color: black;
   border: 1px solid black;
-  padding: 8px 14px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 999px; /* fully rounded pill shape */
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
-}
-
-.dropdownButton:hover {
-  background-color: #f2f2f2;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .triangle {
@@ -48,7 +44,7 @@
   background-color: white;
   min-width: 180px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border-radius: 12px; /* smoother dropdown */
   overflow: hidden;
   z-index: 999;
 }
@@ -66,36 +62,40 @@
   background-color: #f2f2f2;
 }
 
-/* Category buttons container */
+.rightSection {
+  flex: 1;
+}
+
 .categoryButtons {
   display: flex;
-  align-items: center;
-  gap: 15px; /* Keep nice spacing between category buttons */
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
 }
 
 .filterButton {
   background-color: white;
   border: 1px solid black;
-  padding: 8px 14px;
-  font-size: 14px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
   color: black;
-  border-radius: 20px;
+  border-radius: 999px; /* pill shape */
   cursor: pointer;
-  transition: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
 }
 
 .filterButton:hover {
   background-color: #f2f2f2;
-  color: black;
 }
 
 .active {
   background-color: black;
   color: white;
   border: 1px solid black;
+  border-radius: 999px; /* keep pill shape when active */
 }
 
-/* Remove blue outlines and box shadows */
 button,
 button:focus,
 button:active,

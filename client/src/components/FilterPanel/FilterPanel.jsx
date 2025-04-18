@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./FilterPanel.module.css";
 
-const FilterPanel = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+const FilterPanel = ({ selectedCategory, setSelectedCategory }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
