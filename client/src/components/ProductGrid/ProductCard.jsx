@@ -1,43 +1,24 @@
-import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
-import styles from "./ProductGrid.module.css";
+import { useNavigate } from "react-router-dom";
+import styles from "./ProductCard.module.css";
 
-const ProductGrid = ({ selectedCategory }) => {
-  const [products, setProducts] = useState([]);
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const url = `http://localhost:3000/`; // Replace with actual API URL if needed
-        const res = await fetch(url);
-        const data = await res.json();
-
-        const transformed = (data.items || []).map((item) => ({
-          _id: item._id?.$oid || item._id,
-          title: item.product_name,
-          imageUrl: item.product_image,
-          price: `₹${item.product_price}`,
-        }));
-
-        setProducts(transformed);
-      } catch (err) {
-        console.error("Failed to fetch products:", err);
-        setProducts([]);
-      }
-    };
-
-    fetchProducts();
-  }, [selectedCategory]);
+  const handleClick = () => {
+    navigate(`/product/${product._id}`);
+  };
 
   return (
-    <div className={styles.gridContainer}>
-      {products.map((product) => (
-        <div key={product._id} className={styles.cardWrapper}>
-          <ProductCard product={product} />
-        </div>
-      ))}
+    <div className={styles.card} onClick={handleClick}>
+      <img
+        src={product.product_image}
+        alt={product.product_name}
+        className={styles.image}
+      />
+      <h3 className={styles.title}>{product.product_name}</h3>
+      <p className={styles.price}>₹{product.product_price}</p>
     </div>
   );
 };
 
-export default ProductGrid;
+export default ProductCard;
