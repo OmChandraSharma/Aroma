@@ -34,14 +34,14 @@ const ProductDetails = () => {
       <Header /> {/* <-- Displayed at top */}
       <div className={styles.detailsWrapper}>
         <img
-          src={product.imageUrl}
-          alt={product.title}
+          src={product.product_image}
+          alt={product.product_name}
           className={styles.image}
         />
         <div className={styles.info}>
-          <h2>{product.title}</h2>
-          <p className={styles.price}>₹{product.price}</p>
-          <p>{product.description}</p>
+          <h2>{product.product_name}</h2>
+          <p className={styles.price}>₹{product.product_price}</p>
+          <p>{product.description_address}</p>
         </div>
       </div>
     </>
