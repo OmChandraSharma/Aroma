@@ -8,6 +8,9 @@ import CartPage from "./pages/cart/Cart.jsx";
 import Sell from "./pages/Sell_item/Sell.jsx";
 import ProductDetails from "./pages/ProductDetails/ProductDetails.jsx"; // NEW
 
+// import CartPage from "./pages/cart/Cart.jsx";
+
+import { saveToken } from "./utils/auth.js";
 import "./App.css";
 
 function App() {

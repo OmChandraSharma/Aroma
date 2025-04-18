@@ -10,7 +10,7 @@ const CartPage = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await axios.get("/api/cart/view-cart", {
+        const res = await axios.get("http://localhost:3000/api/cart/view-cart", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
