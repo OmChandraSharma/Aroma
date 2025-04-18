@@ -8,19 +8,9 @@ import CartPage from "./pages/cart/Cart.jsx";
 import Sell from "./pages/Sell_item/Sell.jsx";
 import ProductDetails from "./pages/ProductDetails/ProductDetails.jsx"; // NEW
 
-import { saveToken } from "./utils/auth.js";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    // Generate and store a dummy JWT token
-    const dummyToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
-      "eyJ1c2VySWQiOjEsIm5hbWUiOiJKb2huIERvZSJ9." +
-      "s5Ot_uZxqS85fWj6LgOn3z-eGLHKj0KAhUJkI0PGE-Y";
-    saveToken(dummyToken);
-  }, []);
-
   return (
     <Router>
       <Routes>

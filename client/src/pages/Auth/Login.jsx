@@ -4,6 +4,7 @@ import styles from "./Auth.module.css";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { saveToken, saveUser } from "../../utils/auth"; // ✅ import helpers
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -24,14 +25,15 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "http://172.31.95.71:3000/api/auth/login",
         formData
       );
 
-      localStorage.setItem("jwtToken", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      // ✅ Save token and user
+      saveToken(res.data.token);
+      saveUser(res.data.user);
 
-      toast.success("Logged in successfully!");
+      toast.success(`Welcome, ${res.data.user.name}!`);
       navigate(from, { replace: true });
     } catch (err) {
       toast.error(err.response?.data?.msg || "Login failed");
