@@ -5,6 +5,8 @@ import SearchBar from "./SearchBar";
 import LoginButton from "./LoginButton";
 import Profile from "./Profile";
 import { isLoggedIn } from "../../utils/auth";
+import cart_icon from "./cart_icon";
+
 function Header() {
   const loggedIn = isLoggedIn();
   return (
@@ -13,6 +15,7 @@ function Header() {
       <SearchBar />
       <DarkModeToggle />
       {loggedIn ? <Profile /> : <LoginButton />}
+      <cart_icon />
     </header>
   );
 }
