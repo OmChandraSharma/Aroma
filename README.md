@@ -82,14 +82,7 @@ This platform aims to:
 - Encrypted payment data
 - Role-based access control
 
----
 
-## Documentation
-
-- [User Guide](#)
-- [Admin Guide](#)
-- [API Documentation](#)
-- [System Architecture Diagrams](#)
 
 ---
 
